@@ -20,7 +20,7 @@ module.exports = (repoPath, paths = []) ->
     for submodulePath, submoduleRepo of repo.submodules
       submodules[submodulePath] =
         branch: submoduleRepo.getHead()
-        upstream: submoduleRepo.getAheadBehindCount()
+        # upstream: submoduleRepo.getAheadBehindCount()
 
       workingDirectoryPath = submoduleRepo.getWorkingDirectory()
       for filePath, status of submoduleRepo.getStatus()
@@ -29,7 +29,7 @@ module.exports = (repoPath, paths = []) ->
         relativePath = repo.relativize(absolutePath)
         statuses[relativePath] = status
 
-    upstream = repo.getAheadBehindCount()
+    # upstream = repo.getAheadBehindCount()
     branch = repo.getHead()
     repo.release()
 
